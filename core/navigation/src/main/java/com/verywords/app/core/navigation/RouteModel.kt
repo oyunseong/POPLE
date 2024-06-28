@@ -11,6 +11,9 @@ sealed interface Route {
 
     @Serializable
     data class SessionDetail(val sessionId: String) : Route
+
+    @Serializable
+    data class WebView(val url: String) : Route
 }
 
 sealed interface MainTabRoute : Route {
@@ -21,7 +24,12 @@ sealed interface MainTabRoute : Route {
     data object Setting : MainTabRoute
 
     @Serializable
-    data object Bookmark : MainTabRoute
+    data object WebView : MainTabRoute
+}
+
+sealed interface WebViewRoute : Route {
+    @Serializable
+    data object Main : WebViewRoute
 }
 
 

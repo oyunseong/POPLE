@@ -18,13 +18,12 @@ internal enum class MainTab(
         iconResId = R.drawable.ic_android_black_24dp,
         contentDescription = "설정",
         route = MainTabRoute.Setting,
+    ),
+    WEB_VIEW(
+        iconResId = R.drawable.ic_android_black_24dp,
+        contentDescription = "웹뷰",
+        route = MainTabRoute.WebView,
     );
-
-//    BOOKMARK(
-//        iconResId = R.drawable.ic_android_black_24dp,
-//        contentDescription = "북마크",
-//        MainTabRoute.Bookmark,
-//    );
 
     companion object {
         @Composable

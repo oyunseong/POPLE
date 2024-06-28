@@ -45,6 +45,7 @@ android {
 dependencies {
     implementation(project(":feature:home"))
     implementation(project(":feature:setting"))
+    implementation(project(":feature:webview"))
     implementation(project(":core:navigation"))
     implementation(project(":core:designsystem"))
 

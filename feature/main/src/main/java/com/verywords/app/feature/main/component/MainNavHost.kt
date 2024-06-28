@@ -11,6 +11,7 @@ import androidx.navigation.compose.NavHost
 import com.verywords.app.feature.home.navigation.homeNavGraph
 import com.verywords.app.feature.main.MainNavigator
 import com.verywords.app.feature.setting.navigation.settingNavGraph
+import com.verywords.app.feature.webview.navigation.webViewNavGraph
 
 @Composable
 internal fun MainNavHost(
@@ -38,6 +39,10 @@ internal fun MainNavHost(
             settingNavGraph(
                 padding = padding,
                 onChangeDarkTheme = onChangeDarkTheme
+            )
+            webViewNavGraph(
+                padding = padding,
+                onShowErrorSnackBar = onShowErrorSnackBar
             )
 
 //            bookmarkNavGraph(

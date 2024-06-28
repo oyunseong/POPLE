@@ -1,4 +1,5 @@
 [versions]
+accompanistWebview = "0.32.0"
 agp = "8.5.0"
 hiltAndroidGradlePlugin = "2.51.1"
 ksp = "2.0.0-1.0.22"
@@ -62,6 +63,9 @@ androidx-lifecycle-viewModelCompose = { group = "androidx.lifecycle", name = "li
 
 kotlinx-immutable = { group = "org.jetbrains.kotlinx", name = "kotlinx-collections-immutable", version.ref = "kotlinxImmutable" }
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+
+# webview
+accompanist-webview = { module = "com.google.accompanist:accompanist-webview", version.ref = "accompanistWebview" }
 
 
 
