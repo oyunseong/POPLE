@@ -1,5 +1,6 @@
 package com.verywords.app.feature.webview.navigation
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -13,6 +14,7 @@ import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -29,8 +31,12 @@ fun WebViewRoute(
     onShowErrorSnackBar: (throwable: Throwable?) -> Unit,
     viewModel: WebViewViewModel = viewModel()
 ) {
+    LaunchedEffect(Unit) {
+        Log.d("++##", "WebViewRoute")
+    }
+
     WebViewScreen(
-        url = "https://www.naver.com/",
+        url = "http://192.168.0.89:3000",
         javascriptInterface = viewModel.WebAppInterface(),
     )
 }
@@ -42,6 +48,10 @@ fun WebViewScreen(
 ) {
     var currentUrl by remember { mutableStateOf(url) }
     val state = rememberWebViewState(currentUrl)
+
+    LaunchedEffect(Unit) {
+        Log.d("++##", "WebViewScreen")
+    }
 
     Box(modifier = Modifier.fillMaxSize()) {
         Text(text = "WebViewScreen")
@@ -66,5 +76,6 @@ fun WebViewScreen(
             }
         },
         state = state,
-    )
+
+        )
 }
