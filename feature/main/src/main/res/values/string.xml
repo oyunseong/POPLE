@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--tab Menus-->
+    <string name="TAB_MY_RIDE">My Ride</string>
+    <string name="TAB_BATTERY">Battery</string>
+    <string name="TAB_MAP">Map</string>
+    <string name="TAB_SUPPORT">Support</string>
+    <string name="TAB_MORE">More</string>
+
+</resources>

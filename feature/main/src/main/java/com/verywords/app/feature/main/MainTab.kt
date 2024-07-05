@@ -6,22 +6,32 @@ import com.verywords.app.core.navigation.Route
 
 internal enum class MainTab(
     val iconResId: Int,
-    internal val contentDescription: String,
+    internal val contentDescription: Int,
     val route: MainTabRoute,
 ) {
     HOME(
-        iconResId = R.drawable.ic_android_black_24dp,
-        contentDescription = "홈",
+        iconResId = R.drawable.ic_scooter,
+        contentDescription = R.string.TAB_MY_RIDE,
         route = MainTabRoute.Home
     ),
     SETTING(
-        iconResId = R.drawable.ic_android_black_24dp,
-        contentDescription = "설정",
+        iconResId = R.drawable.ic_battery,
+        contentDescription = R.string.TAB_BATTERY,
         route = MainTabRoute.Setting,
     ),
+    MAP(
+        iconResId = R.drawable.ic_map,
+        contentDescription = R.string.TAB_MAP,
+        route = MainTabRoute.WebView,
+    ),
+    SUPPORT(
+        iconResId = R.drawable.ic_support,
+        contentDescription = R.string.TAB_SUPPORT,
+        route = MainTabRoute.WebView,
+    ),
     WEB_VIEW(
-        iconResId = R.drawable.ic_android_black_24dp,
-        contentDescription = "웹뷰",
+        iconResId = R.drawable.ic_menu,
+        contentDescription = R.string.TAB_MORE,
         route = MainTabRoute.WebView,
     );
 

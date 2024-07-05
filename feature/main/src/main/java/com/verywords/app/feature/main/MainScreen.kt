@@ -65,9 +65,7 @@ private fun MainScreenContent(
         },
         bottomBar = {
             MainBottomBar(
-                modifier = Modifier
-                    .navigationBarsPadding()
-                    .padding(start = 8.dp, end = 8.dp, bottom = 28.dp),
+                modifier = Modifier.navigationBarsPadding(),
                 visible = navigator.shouldShowBottomBar(),
                 tabs = MainTab.entries.toPersistentList(),
                 currentTab = navigator.currentTab,

@@ -38,7 +38,7 @@ private val PoppinsStyle = TextStyle(
 
 fun localeTextStyle(language: String): TextStyle {
     return when (language) {
-        "ko" -> PretendardStyle
+        "ko" -> PoppinsStyle//PretendardStyle
         "en" -> PoppinsStyle
         else -> PoppinsStyle
     }

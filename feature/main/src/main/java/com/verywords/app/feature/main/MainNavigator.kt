@@ -1,14 +1,17 @@
 package com.verywords.app.feature.main
 
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.navigation.NavDestination
+import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
 import com.verywords.app.core.navigation.MainTabRoute
+import com.verywords.app.core.navigation.Route
 import com.verywords.app.feature.home.navigation.navigateHome
 import com.verywords.app.feature.setting.navigation.navigateSetting
 import com.verywords.app.feature.webview.navigation.navigateWebView
@@ -26,8 +29,7 @@ internal class MainNavigator(
 
     val currentTab: MainTab?
         @Composable get() = MainTab.find { tab ->
-            currentDestination?.route == tab.javaClass.name
-//            currentDestination?.hasRoute(tab::class) == true
+            currentDestination?.hasRoute(tab::class) == true
         }
 
     fun navigate(tab: MainTab) {
@@ -43,6 +45,8 @@ internal class MainNavigator(
             MainTab.SETTING -> navController.navigateSetting(navOptions)
             MainTab.HOME -> navController.navigateHome(navOptions)
             MainTab.WEB_VIEW -> navController.navigateWebView(navOptions)
+            MainTab.MAP -> navController.navigateWebView(navOptions)
+            MainTab.SUPPORT -> navController.navigateWebView(navOptions)
         }
     }
 
@@ -63,25 +67,20 @@ internal class MainNavigator(
     }
 
     fun popBackStackIfNotHome() {
-//        if (!isSameCurrentDestination<MainTabRoute.Home>()) {
-//            popBackStack()
-//        }
-        if (navController.currentDestination?.route != MainTabRoute.Home.javaClass.name) {
+        if (!isSameCurrentDestination<MainTabRoute.Home>()) {
             popBackStack()
         }
-//    }
+    }
 
-//    private inline fun <reified T : Route> isSameCurrentDestination(): Boolean {
-//        return navController.currentDestination?.hasRoute<T>() == true
-////        return navController.currentDestination?.hasRoute<T>() == true
-//    }
-
+    private inline fun <reified T : Route> isSameCurrentDestination(): Boolean {
+        return navController.currentDestination?.hasRoute<T>() == true
     }
 
     @Composable
     fun shouldShowBottomBar() = MainTab.contains {
-        true
-//        currentDestination?.hasRoute(it::class) == true
+        Log.d("++##","currentDestination arguments :${currentDestination?.arguments}")
+        Log.d("++##", "it::class : ${it::class}")
+        currentDestination?.hasRoute(it::class) == true
     }
 }
 
