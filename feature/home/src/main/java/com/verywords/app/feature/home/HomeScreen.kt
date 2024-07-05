@@ -1,15 +1,26 @@
 package com.verywords.app.feature.home
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
+import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.compose.ui.unit.dp
+import com.verywords.app.core.designsystem.theme.POPLETheme
 
 @Composable
 internal fun HomeRoute(
@@ -25,14 +36,14 @@ internal fun HomeRoute(
 //        viewModel.errorFlow.collectLatest { throwable -> onShowErrorSnackBar(throwable) }
     }
 
-//    HomeScreen(
-//        padding = padding,
-//        sponsorsUiState = sponsorsUiState,
-//        onSessionClick = onSessionClick,
-//        onContributorClick = onContributorClick,
-//    )
+
+    var cnt by remember { mutableStateOf(0) }
     HomeScreen(
-        padding = padding
+        padding = padding,
+        cnt = cnt,
+        onClick1 = {
+            cnt++
+        }
     )
 }
 
@@ -40,12 +51,46 @@ internal fun HomeRoute(
 @Composable
 fun HomeScreen(
     padding: PaddingValues,
+    cnt: Int,
+    onClick1: () -> Unit,
 ) {
     Box(
         modifier = Modifier
             .padding(padding)
             .background(color = Color.Yellow)
+            .fillMaxSize()
     ) {
-        Text(text = "is home")
+        LaunchedEffect(Unit) {
+            Log.d("++##", "HomeScreen LaunchedEffect")
+
+        }
+        Button(
+            modifier = Modifier.align(Alignment.Center),
+            onClick = { onClick1.invoke() }) {
+            Text(
+                text = "click",
+                style = POPLETheme.typography.headingL
+            )
+        }
+
+        Column {
+            Box(
+                modifier = Modifier
+                    .padding(20.dp)
+            ) {
+                ProvideTextStyle(value = POPLETheme.typography.headingL) {
+                    Text(
+                        text = "$cnt home",
+                        style = POPLETheme.typography.headingL
+                    )
+                }
+            }
+
+            Box(modifier = Modifier) {
+                Text(text = " home")
+            }
+        }
+
+
     }
 }

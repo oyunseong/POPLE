@@ -1,234 +1,278 @@
-package com.droidknights.app.core.designsystem.theme
+package com.verywords.app.core.designsystem.theme
 
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.verywords.app.core.designsystem.R
 
-private val SansSerifStyle = TextStyle(
-    fontFamily = FontFamily.SansSerif,
-    fontWeight = FontWeight.Normal,
+private val poppinsFontFamily = FontFamily(
+    Font(R.font.poppins_regular, FontWeight.Normal),
+    Font(R.font.poppins_medium, FontWeight.Medium),
+    Font(R.font.poppins_semi_bold, FontWeight.SemiBold),
 )
 
-internal val Typography = KnightsTypography(
-    displayLargeR = SansSerifStyle.copy(
-        fontSize = 57.sp,
-        lineHeight = 64.sp,
-        letterSpacing = (-0.25).sp,
-    ),
-    displayMediumR = SansSerifStyle.copy(
-        fontSize = 45.sp,
-        lineHeight = 52.sp,
-    ),
-    displaySmallR = SansSerifStyle.copy(
-        fontSize = 36.sp,
-        lineHeight = 44.sp,
-    ),
-    headlineLargeEB = SansSerifStyle.copy(
-        fontSize = 32.sp,
-        lineHeight = 40.sp,
-        fontWeight = FontWeight.ExtraBold,
-    ),
-    headlineLargeSB = SansSerifStyle.copy(
-        fontSize = 32.sp,
-        lineHeight = 40.sp,
-        fontWeight = FontWeight.SemiBold,
-    ),
-    headlineLargeR = SansSerifStyle.copy(
-        fontSize = 32.sp,
-        lineHeight = 40.sp,
-    ),
-    headlineMediumB = SansSerifStyle.copy(
-        fontSize = 28.sp,
-        lineHeight = 36.sp,
-        fontWeight = FontWeight.Bold,
-    ),
-    headlineMediumM = SansSerifStyle.copy(
-        fontSize = 28.sp,
-        lineHeight = 36.sp,
-        fontWeight = FontWeight.Medium,
-    ),
-    headlineMediumR = SansSerifStyle.copy(
-        fontSize = 28.sp,
-        lineHeight = 36.sp,
-    ),
-    headlineSmallBL = SansSerifStyle.copy(
-        fontSize = 24.sp,
-        lineHeight = 32.sp,
-        fontWeight = FontWeight.Black,
-        letterSpacing = (-0.2).sp,
-    ),
-    headlineSmallM = SansSerifStyle.copy(
-        fontSize = 24.sp,
-        lineHeight = 32.sp,
-        fontWeight = FontWeight.Medium,
-    ),
-    headlineSmallR = SansSerifStyle.copy(
-        fontSize = 24.sp,
-        lineHeight = 32.sp,
-    ),
-    titleLargeBL = SansSerifStyle.copy(
-        fontSize = 22.sp,
-        lineHeight = 28.sp,
-        fontWeight = FontWeight.Black,
-    ),
-    titleLargeB = SansSerifStyle.copy(
-        fontSize = 22.sp,
-        lineHeight = 28.sp,
-        fontWeight = FontWeight.Bold,
-    ),
-    titleLargeM = SansSerifStyle.copy(
-        fontSize = 22.sp,
-        lineHeight = 28.sp,
-        fontWeight = FontWeight.Medium,
-    ),
-    titleLargeR = SansSerifStyle.copy(
-        fontSize = 22.sp,
-        lineHeight = 28.sp,
-    ),
-    titleMediumBL = SansSerifStyle.copy(
-        fontSize = 16.sp,
-        lineHeight = 24.sp,
-        fontWeight = FontWeight.Black,
-    ),
-    titleMediumB = SansSerifStyle.copy(
-        fontSize = 16.sp,
-        lineHeight = 24.sp,
-        fontWeight = FontWeight.Bold,
-    ),
-    titleMediumR = SansSerifStyle.copy(
-        fontSize = 16.sp,
-        lineHeight = 24.sp,
-    ),
-    titleSmallB = SansSerifStyle.copy(
-        fontSize = 14.sp,
-        lineHeight = 20.sp,
-        fontWeight = FontWeight.Bold,
-        letterSpacing = 0.25.sp,
-    ),
-    titleSmallM = SansSerifStyle.copy(
-        fontSize = 14.sp,
-        lineHeight = 20.sp,
-        fontWeight = FontWeight.Medium,
-        letterSpacing = 0.25.sp,
-    ),
-    titleSmallM140 = SansSerifStyle.copy(
-        fontSize = 14.sp,
-        lineHeight = (19.6).sp,
-        fontWeight = FontWeight.Medium,
-        letterSpacing = (-0.2).sp,
-    ),
-    titleSmallR140 = SansSerifStyle.copy(
-        fontSize = 14.sp,
-        lineHeight = (19.6).sp,
-        letterSpacing = (-0.2).sp,
-    ),
-    titleSmallR = SansSerifStyle.copy(
-        fontSize = 14.sp,
-        lineHeight = 20.sp,
-    ),
-    labelLargeM = SansSerifStyle.copy(
-        fontSize = 12.sp,
-        lineHeight = 16.sp,
-        fontWeight = FontWeight.Medium,
-    ),
-    labelMediumR = SansSerifStyle.copy(
-        fontSize = 12.sp,
-        lineHeight = 16.sp,
-    ),
-    labelSmallM = SansSerifStyle.copy(
-        fontSize = 11.sp,
-        lineHeight = 16.sp,
-        fontWeight = FontWeight.Medium,
-        letterSpacing = (-0.2).sp,
-    ),
-    bodyLargeR = SansSerifStyle.copy(
-        fontSize = 16.sp,
-        lineHeight = 24.sp,
-        letterSpacing = 0.5.sp,
-    ),
-    bodyMediumR = SansSerifStyle.copy(
-        fontSize = 14.sp,
-        lineHeight = 20.sp,
-        letterSpacing = 0.25.sp,
-    ),
-    bodySmallR = SansSerifStyle.copy(
-        fontSize = 12.sp,
-        lineHeight = 16.sp,
-    ),
+private val pretendardFontFamily = FontFamily(
+    Font(R.font.pretendard_regular, FontWeight.Normal),
+    Font(R.font.pretendard_medium, FontWeight.Medium),
+    Font(R.font.pretendard_semi_bold, FontWeight.SemiBold),
+    Font(R.font.pretendard_bold, FontWeight.Bold),
 )
+
+
+private val PretendardStyle = TextStyle(
+    fontFamily = pretendardFontFamily,
+    fontWeight = FontWeight.Normal
+)
+
+private val PoppinsStyle = TextStyle(
+    fontFamily = poppinsFontFamily,
+    fontWeight = FontWeight.Normal
+)
+
+fun localeTextStyle(language: String): TextStyle {
+    return when (language) {
+        "ko" -> PretendardStyle
+        "en" -> PoppinsStyle
+        else -> PoppinsStyle
+    }
+}
+
+
+@Composable
+internal fun getTypography(language: String): POPLETypography {
+    val localeTextStyle = localeTextStyle(language = language)
+    return when (language) {
+        "ko" -> {
+            POPLETypography(
+                headingL = localeTextStyle.copy(
+                    fontSize = 32.sp,
+                    lineHeight = (32 * 1.3).sp,
+                    fontWeight = FontWeight.Bold,
+                ),
+                headingS = localeTextStyle.copy(
+                    fontSize = 24.sp,
+                    lineHeight = (24 * 1.5).sp,
+                    fontWeight = FontWeight.Bold
+                ),
+                bodyLb = localeTextStyle.copy(
+                    fontSize = 16.sp,
+                    lineHeight = (16 * 1.6).sp,
+                    fontWeight = FontWeight.Bold
+                ),
+                bodyLr = localeTextStyle.copy(
+                    fontSize = 16.sp,
+                    lineHeight = (16 * 1.6).sp,
+                    fontWeight = FontWeight.Normal
+                ),
+                bodyMb = localeTextStyle.copy(
+                    fontSize = 14.8.sp,
+                    lineHeight = (14.8 * 1.6).sp,
+                    fontWeight = FontWeight.Bold
+                ),
+                bodyMr = localeTextStyle.copy(
+                    fontSize = 14.8.sp,
+                    lineHeight = (14.8 * 1.6).sp,
+                    fontWeight = FontWeight.Normal
+                ),
+                bodySb = localeTextStyle.copy(
+                    fontSize = 13.5.sp,
+                    lineHeight = (13.5 * 1.5).sp,
+                    fontWeight = FontWeight.Bold
+                ),
+                bodySr = localeTextStyle.copy(
+                    fontSize = 13.5.sp,
+                    lineHeight = (13.5 * 1.5).sp,
+                    fontWeight = FontWeight.Normal
+                ),
+                titleS = localeTextStyle.copy(
+                    fontSize = 13.sp,
+                    lineHeight = (13 * 1.5).sp,
+                    fontWeight = FontWeight.Bold
+                ),
+                titleM = localeTextStyle.copy(
+                    fontSize = 14.sp,
+                    lineHeight = (14 * 1.6).sp,
+                    fontWeight = FontWeight.Bold
+                ),
+                titleL = localeTextStyle.copy(
+                    fontSize = 15.5.sp,
+                    lineHeight = (15.5 * 1.6).sp,
+                    fontWeight = FontWeight.Bold
+                ),
+                subTitleS = localeTextStyle.copy(
+                    fontSize = 13.sp,
+                    lineHeight = (13 * 1.5).sp,
+                    fontWeight = FontWeight.Medium
+                ),
+                subTitleM = localeTextStyle.copy(
+                    fontSize = 14.sp,
+                    lineHeight = (14 * 1.6).sp,
+                    fontWeight = FontWeight.SemiBold
+                ),
+                subTitleL = localeTextStyle.copy(
+                    fontSize = 15.5.sp,
+                    lineHeight = (15.5 * 1.6).sp,
+                    fontWeight = FontWeight.Medium
+                ),
+            )
+        }
+
+        else -> {
+            POPLETypography(
+                headingL = localeTextStyle.copy(
+                    fontSize = 32.sp,
+                    lineHeight = (32 * 1.3).sp,
+                    letterSpacing = (-0.2).sp,
+                ),
+                headingS = localeTextStyle.copy(
+                    fontSize = 22.sp,
+                    lineHeight = (22 * 1.5).sp,
+                    fontWeight = FontWeight.Bold,
+                    letterSpacing = (-0.2).sp,
+                ),
+                bodyLb = localeTextStyle.copy(
+                    fontSize = 15.5.sp,
+                    lineHeight = (15.5 * 1.6).sp,
+                    letterSpacing = (-0.2).sp,
+                    fontWeight = FontWeight.SemiBold
+                ),
+                bodyLr = localeTextStyle.copy(
+                    fontSize = 15.5.sp,
+                    lineHeight = (15.5 * 1.6).sp,
+                    letterSpacing = (-0.2).sp,
+                    fontWeight = FontWeight.Normal
+                ),
+                bodyMb = localeTextStyle.copy(
+                    fontSize = 14.sp,
+                    lineHeight = (14 * 1.6).sp,
+                    letterSpacing = (-0.2).sp,
+                    fontWeight = FontWeight.SemiBold
+                ),
+                bodyMr = localeTextStyle.copy(
+                    fontSize = 14.sp,
+                    lineHeight = (14 * 1.6).sp,
+                    letterSpacing = (-0.2).sp,
+                    fontWeight = FontWeight.Normal
+                ),
+                bodySb = localeTextStyle.copy(
+                    fontSize = 13.sp,
+                    lineHeight = (13 * 1.4).sp,
+                    letterSpacing = (-0.5).sp,
+                    fontWeight = FontWeight.SemiBold
+                ),
+                bodySr = localeTextStyle.copy(
+                    fontSize = 13.sp,
+                    lineHeight = (13 * 1.4).sp,
+                    letterSpacing = (-0.5).sp,
+                    fontWeight = FontWeight.Normal
+                ),
+                titleS = localeTextStyle.copy(
+                    fontSize = 13.sp,
+                    lineHeight = (13 * 1.5).sp,
+                    letterSpacing = (-0.3).sp,
+                    fontWeight = FontWeight.SemiBold
+                ),
+                titleM = localeTextStyle.copy(
+                    fontSize = 14.sp,
+                    lineHeight = (14 * 1.6).sp,
+                    letterSpacing = (-0.2).sp,
+                    fontWeight = FontWeight.SemiBold
+                ),
+                titleL = localeTextStyle.copy(
+                    fontSize = 15.5.sp,
+                    lineHeight = (15.5 * 1.6).sp,
+                    letterSpacing = (-0.2).sp,
+                    fontWeight = FontWeight.SemiBold
+                ),
+                subTitleS = localeTextStyle.copy(
+                    fontSize = 13.sp,
+                    lineHeight = (13 * 1.5).sp,
+                    letterSpacing = (-0.3).sp,
+                    fontWeight = FontWeight.Medium
+                ),
+                subTitleM = localeTextStyle.copy(
+                    fontSize = 14.sp,
+                    lineHeight = (14 * 1.6).sp,
+                    letterSpacing = (-0.2).sp,
+                    fontWeight = FontWeight.SemiBold
+                ),
+                subTitleL = localeTextStyle.copy(
+                    fontSize = 15.5.sp,
+                    lineHeight = (15.5 * 1.6).sp,
+                    letterSpacing = (-0.2).sp,
+                    fontWeight = FontWeight.Medium
+                ),
+            )
+        }
+    }
+}
 
 @Immutable
-data class KnightsTypography(
-    val displayLargeR: TextStyle,
-    val displayMediumR: TextStyle,
-    val displaySmallR: TextStyle,
-
-    val headlineLargeEB: TextStyle,
-    val headlineLargeSB: TextStyle,
-    val headlineLargeR: TextStyle,
-    val headlineMediumB: TextStyle,
-    val headlineMediumM: TextStyle,
-    val headlineMediumR: TextStyle,
-    val headlineSmallBL: TextStyle,
-    val headlineSmallM: TextStyle,
-    val headlineSmallR: TextStyle,
-
-    val titleLargeBL: TextStyle,
-    val titleLargeB: TextStyle,
-    val titleLargeM: TextStyle,
-    val titleLargeR: TextStyle,
-    val titleMediumBL: TextStyle,
-    val titleMediumB: TextStyle,
-    val titleMediumR: TextStyle,
-    val titleSmallB: TextStyle,
-    val titleSmallM: TextStyle,
-    val titleSmallM140: TextStyle,
-    val titleSmallR: TextStyle,
-    val titleSmallR140: TextStyle,
-
-    val labelLargeM: TextStyle,
-    val labelMediumR: TextStyle,
-    val labelSmallM: TextStyle,
-
-    val bodyLargeR: TextStyle,
-    val bodyMediumR: TextStyle,
-    val bodySmallR: TextStyle,
+data class POPLETypography(
+    val headingL: TextStyle,
+    val headingS: TextStyle,
+    val bodyLb: TextStyle,
+    val bodyLr: TextStyle,
+    val bodyMb: TextStyle,
+    val bodyMr: TextStyle,
+    val bodySb: TextStyle,
+    val bodySr: TextStyle,
+    val titleS: TextStyle,
+    val titleM: TextStyle,
+    val titleL: TextStyle,
+    val subTitleS: TextStyle,
+    val subTitleM: TextStyle,
+    val subTitleL: TextStyle,
 )
 
+@Composable
+fun getLocalTypography(): ProvidableCompositionLocal<POPLETypography> {
+    val context = LocalContext.current
+    return staticCompositionLocalOf {
+        val locale = context.resources.configuration.locales[0]
+        val localeTextStyle = localeTextStyle(language = locale.language)
+        POPLETypography(
+            headingL = localeTextStyle,
+            headingS = localeTextStyle,
+            bodyLr = localeTextStyle,
+            bodyLb = localeTextStyle,
+            bodyMb = localeTextStyle,
+            bodyMr = localeTextStyle,
+            bodySb = localeTextStyle,
+            bodySr = localeTextStyle,
+            titleS = localeTextStyle,
+            titleM = localeTextStyle,
+            titleL = localeTextStyle,
+            subTitleS = localeTextStyle,
+            subTitleM = localeTextStyle,
+            subTitleL = localeTextStyle,
+        )
+    }
+}
+
 val LocalTypography = staticCompositionLocalOf {
-    KnightsTypography(
-        labelSmallM = SansSerifStyle,
-        displayLargeR = SansSerifStyle,
-        displayMediumR = SansSerifStyle,
-        displaySmallR = SansSerifStyle,
-        headlineLargeEB = SansSerifStyle,
-        headlineLargeSB = SansSerifStyle,
-        headlineLargeR = SansSerifStyle,
-        headlineMediumB = SansSerifStyle,
-        headlineMediumM = SansSerifStyle,
-        headlineMediumR = SansSerifStyle,
-        headlineSmallBL = SansSerifStyle,
-        headlineSmallM = SansSerifStyle,
-        headlineSmallR = SansSerifStyle,
-        titleLargeBL = SansSerifStyle,
-        titleLargeB = SansSerifStyle,
-        titleLargeM = SansSerifStyle,
-        titleLargeR = SansSerifStyle,
-        titleMediumBL = SansSerifStyle,
-        titleMediumB = SansSerifStyle,
-        titleMediumR = SansSerifStyle,
-        titleSmallB = SansSerifStyle,
-        titleSmallM = SansSerifStyle,
-        titleSmallM140 = SansSerifStyle,
-        titleSmallR = SansSerifStyle,
-        titleSmallR140 = SansSerifStyle,
-        labelLargeM = SansSerifStyle,
-        labelMediumR = SansSerifStyle,
-        bodyLargeR = SansSerifStyle,
-        bodyMediumR = SansSerifStyle,
-        bodySmallR = SansSerifStyle,
+    val defaultStyle = PoppinsStyle
+    POPLETypography(
+        headingL = defaultStyle,
+        headingS = defaultStyle,
+        bodyLr = defaultStyle,
+        bodyLb = defaultStyle,
+        bodyMb = defaultStyle,
+        bodyMr = defaultStyle,
+        bodySb = defaultStyle,
+        bodySr = defaultStyle,
+        titleS = defaultStyle,
+        titleM = defaultStyle,
+        titleL = defaultStyle,
+        subTitleS = defaultStyle,
+        subTitleM = defaultStyle,
+        subTitleL = defaultStyle,
     )
 }
