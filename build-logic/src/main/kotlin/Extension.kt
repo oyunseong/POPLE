@@ -21,3 +21,10 @@ internal val Project.androidExtension: CommonExtension<*, *, *, *, *, *>
 
 internal val ExtensionContainer.libs: VersionCatalog
     get() = getByType<VersionCatalogsExtension>().named("libs")
+
+
+fun Project.setNamespace(name: String) {
+    androidExtension.apply {
+        namespace = "com.verywords.app.$name"
+    }
+}

@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         google {
             content {
@@ -11,6 +12,8 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+
+@Suppress("UnstableApiUsage")
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -21,13 +24,21 @@ dependencyResolutionManagement {
 
 rootProject.name = "POPLE"
 include(":app")
-include(":core:data")
-include(":feature:main")
-include(":feature:home")
-include(":core:designsystem")
-include(":core:data-api")
-include(":core:datastore")
-include(":core:navigation")
-include(":core:model")
-include(":feature:setting")
-include(":feature:webview")
+
+// Core
+include(
+    ":core:data",
+    ":core:designsystem",
+    ":core:data-api",
+    ":core:datastore",
+    ":core:navigation",
+    ":core:model"
+)
+
+// Feature
+include(
+    ":feature:setting",
+    ":feature:webview",
+    ":feature:home",
+    ":feature:main"
+)

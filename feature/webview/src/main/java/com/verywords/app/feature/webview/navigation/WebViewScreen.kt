@@ -36,7 +36,7 @@ fun WebViewRoute(
     }
 
     WebViewScreen(
-        url = "http://192.168.0.89:3000",
+        url = "http://192.168.0.18:3000",
         javascriptInterface = viewModel.WebAppInterface(),
     )
 }
