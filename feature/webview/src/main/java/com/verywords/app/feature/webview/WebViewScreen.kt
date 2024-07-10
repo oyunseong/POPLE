@@ -1,8 +1,6 @@
-package com.verywords.app.feature.webview.navigation
+package com.verywords.app.feature.webview
 
-import android.util.Log
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.WindowInsetsSides
@@ -12,13 +10,10 @@ import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -31,12 +26,8 @@ fun WebViewRoute(
     onShowErrorSnackBar: (throwable: Throwable?) -> Unit,
     viewModel: WebViewViewModel = viewModel()
 ) {
-    LaunchedEffect(Unit) {
-        Log.d("++##", "WebViewRoute")
-    }
-
     WebViewScreen(
-        url = "http://192.168.0.18:3000",
+        url = "http://192.168.1.194:3000/MobileTest",
         javascriptInterface = viewModel.WebAppInterface(),
     )
 }
@@ -46,16 +37,8 @@ fun WebViewScreen(
     url: String,
     javascriptInterface: WebViewViewModel.WebAppInterface,
 ) {
-    var currentUrl by remember { mutableStateOf(url) }
+    val currentUrl by remember { mutableStateOf(url) }
     val state = rememberWebViewState(currentUrl)
-
-    LaunchedEffect(Unit) {
-        Log.d("++##", "WebViewScreen")
-    }
-
-    Box(modifier = Modifier.fillMaxSize()) {
-        Text(text = "WebViewScreen")
-    }
 
     WebView(
         modifier = Modifier
@@ -76,6 +59,5 @@ fun WebViewScreen(
             }
         },
         state = state,
-
-        )
+    )
 }

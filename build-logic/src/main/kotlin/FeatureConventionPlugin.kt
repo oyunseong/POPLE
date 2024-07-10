@@ -23,12 +23,17 @@ internal class FeatureConventionPlugin : Plugin<Project> {
                 "implementation"(libs.findLibrary("androidx.appcompat").get())
                 "implementation"(libs.findLibrary("androidx.core.ktx").get())
                 "implementation"(libs.findLibrary("androidx.navigation.ui.ktx").get())
+                "implementation"(libs.findLibrary("androidx.navigation.fragment.ktx").get())
                 "implementation"(libs.findLibrary("material").get())
                 "implementation"(libs.findLibrary("androidx.core.ktx").get())
                 "implementation"(libs.findLibrary("androidx.lifecycle.runtime.ktx").get())
                 "implementation"(libs.findLibrary("androidx.appcompat").get())
                 "implementation"(libs.findLibrary("androidx.activity.compose").get())
                 "implementation"(libs.findLibrary("androidx.appcompat").get())
+
+                //webview
+                "implementation"(libs.findLibrary("accompanist.webview").get())
+
             }
         }
     }

@@ -13,6 +13,7 @@ import androidx.navigation.navOptions
 import com.verywords.app.core.navigation.MainTabRoute
 import com.verywords.app.core.navigation.Route
 import com.verywords.app.feature.home.navigation.navigateHome
+import com.verywords.app.feature.map.navigation.navigateMap
 import com.verywords.app.feature.setting.navigation.navigateSetting
 import com.verywords.app.feature.webview.navigation.navigateWebView
 
@@ -32,31 +33,28 @@ internal class MainNavigator(
             currentDestination?.hasRoute(tab::class) == true
         }
 
+
+
     fun navigate(tab: MainTab) {
         val navOptions = navOptions {
+            // 탭을 선택했을 때 백 스택에 대규모 대상 스택이 빌드되지 않도록 그래프의 시작 대상을 팝업으로 만듭니다.
             popUpTo(navController.graph.findStartDestination().id) {
-                saveState = true
+                saveState = true    //
             }
-            launchSingleTop = true
-            restoreState = true
+            launchSingleTop = true  // 백 스택 위에 대상의 사본이 최대 1개가 되도록 해 줍니다.
+            restoreState = true     // 대상이 이미 백 스택에 있으면 그 상태를 복원합니다.
         }
 
         when (tab) {
-            MainTab.SETTING -> navController.navigateSetting(navOptions)
             MainTab.HOME -> navController.navigateHome(navOptions)
+            MainTab.SETTING -> navController.navigateSetting(navOptions)
+            MainTab.MAP -> navController.navigateMap(navOptions)
             MainTab.WEB_VIEW -> navController.navigateWebView(navOptions)
-            MainTab.MAP -> navController.navigateWebView(navOptions)
             MainTab.SUPPORT -> navController.navigateWebView(navOptions)
         }
     }
 
-//    fun navigateContributor() {
-//        navController.navigateContributor()
-//    }
-//
-//    fun navigateSession() {
-//        navController.navigateSession()
-//    }
+
 //
 //    fun navigateSessionDetail(sessionId: String) {
 //        navController.navigateSessionDetail(sessionId)
@@ -78,8 +76,6 @@ internal class MainNavigator(
 
     @Composable
     fun shouldShowBottomBar() = MainTab.contains {
-        Log.d("++##","currentDestination arguments :${currentDestination?.arguments}")
-        Log.d("++##", "it::class : ${it::class}")
         currentDestination?.hasRoute(it::class) == true
     }
 }

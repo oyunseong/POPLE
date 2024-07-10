@@ -40,5 +40,6 @@ include(
     ":feature:setting",
     ":feature:webview",
     ":feature:home",
-    ":feature:main"
+    ":feature:main",
+    ":feature:map"
 )

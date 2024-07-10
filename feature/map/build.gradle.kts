@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    setNamespace("feature.webview")
+    setNamespace("feature.mpa")
 }
 
 dependencies {

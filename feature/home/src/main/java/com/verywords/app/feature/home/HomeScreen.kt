@@ -12,6 +12,7 @@ import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -20,6 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.verywords.app.core.designsystem.theme.POPLETheme
 
 @Composable
@@ -28,7 +30,7 @@ internal fun HomeRoute(
     onSessionClick: () -> Unit,
     onContributorClick: () -> Unit,
     onShowErrorSnackBar: (throwable: Throwable?) -> Unit,
-//    viewModel: HomeViewModel = hiltViewModel(),
+    viewModel: HomeViewModel = hiltViewModel(),
 ) {
 //    val sponsorsUiState by viewModel.sponsorsUiState.collectAsStateWithLifecycle()
 
@@ -36,13 +38,12 @@ internal fun HomeRoute(
 //        viewModel.errorFlow.collectLatest { throwable -> onShowErrorSnackBar(throwable) }
     }
 
-
-    var cnt by remember { mutableStateOf(0) }
+    val cnt by viewModel.cnt.collectAsState()
     HomeScreen(
         padding = padding,
         cnt = cnt,
         onClick1 = {
-            cnt++
+            viewModel.plusCnt()
         }
     )
 }

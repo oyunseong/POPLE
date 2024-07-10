@@ -22,7 +22,7 @@ internal enum class MainTab(
     MAP(
         iconResId = R.drawable.ic_map,
         contentDescription = R.string.TAB_MAP,
-        route = MainTabRoute.WebView,
+        route = MainTabRoute.Map,
     ),
     SUPPORT(
         iconResId = R.drawable.ic_support,

@@ -6,7 +6,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import com.verywords.app.core.navigation.MainTabRoute
-import com.verywords.app.core.navigation.WebViewRoute
+import com.verywords.app.feature.webview.WebViewRoute
 
 fun NavController.navigateWebView(navOptions: NavOptions) {
     navigate(

@@ -25,6 +25,9 @@ sealed interface MainTabRoute : Route {
 
     @Serializable
     data object WebView : MainTabRoute
+
+    @Serializable
+    data object  Map : MainTabRoute
 }
 
 sealed interface WebViewRoute : Route {

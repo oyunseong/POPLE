@@ -1,4 +1,4 @@
-package com.verywords.app.feature.webview.navigation
+package com.verywords.app.feature.webview
 
 import android.webkit.JavascriptInterface
 import androidx.lifecycle.ViewModel
