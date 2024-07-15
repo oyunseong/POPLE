@@ -11,7 +11,6 @@ internal class FeatureConventionPlugin : Plugin<Project> {
             with(pluginManager) {
                 apply("verywords.plugin.android.library")
                 apply("verywords.plugin.android.library.compose")
-                apply("verywords.plugin.hilt")
             }
 
             val libs = extensions.libs
@@ -34,6 +33,8 @@ internal class FeatureConventionPlugin : Plugin<Project> {
                 //webview
                 "implementation"(libs.findLibrary("accompanist.webview").get())
 
+                // html parser
+                "implementation"(libs.findLibrary("jsoup").get())
             }
         }
     }

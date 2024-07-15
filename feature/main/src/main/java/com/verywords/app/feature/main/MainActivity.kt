@@ -1,9 +1,10 @@
 package com.verywords.app.feature.main
 
 import android.os.Bundle
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.NavHostFragment
+import com.verywords.app.core.designsystem.theme.POPLETheme
 import com.verywords.app.feature.home.HomeFragment
 import com.verywords.app.feature.main.databinding.ActivityMainBinding
 import com.verywords.app.feature.map.MapFragment
@@ -65,10 +66,8 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
         _binding = null
     }
-}
 
-
-// COMPOSE
+//    // COMPOSE
 //    override fun onCreate(savedInstanceState: Bundle?) {
 //        super.onCreate(savedInstanceState)
 ////        window.decorView.apply {
@@ -77,8 +76,6 @@ class MainActivity : AppCompatActivity() {
 ////                    or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
 ////        }
 ////        val isDarkTheme by viewModel.isDarkTheme.collectAsStateWithLifecycle(false, this)
-//
-//
 //
 ////         compose
 //        setContent {
@@ -91,5 +88,8 @@ class MainActivity : AppCompatActivity() {
 //            }
 //        }
 //    }
-//}
+}
+
+
+
 

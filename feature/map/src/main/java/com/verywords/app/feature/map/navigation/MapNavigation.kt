@@ -18,18 +18,11 @@ fun NavController.navigateMap(navOptions: NavOptions) {
 }
 
 fun NavGraphBuilder.mapNavGraph(
-    webViewState: WebViewState,
-    navigator: WebViewNavigator,
     padding: PaddingValues,
     onShowErrorSnackBar: (throwable: Throwable?) -> Unit,
 ) {
     composable<MainTabRoute.Map> {
-        MapRoute(
-//            webViewState,
-//            navigator,
-//            padding,
-//            onShowErrorSnackBar
-        )
+        MapRoute()
     }
 }
 

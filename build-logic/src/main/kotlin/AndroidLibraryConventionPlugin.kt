@@ -18,6 +18,7 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
                 apply("com.android.library")
                 apply("org.jetbrains.kotlin.android")
                 apply("kotlin-parcelize")
+                apply("verywords.plugin.hilt")
             }
 
             extensions.configure<LibraryExtension> {
@@ -46,6 +47,7 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
             val libs = extensions.libs
             dependencies {
                 "testImplementation"(libs.findLibrary("androidx.ui.test.junit4").get())
+                "implementation"(libs.findLibrary("androidx.junit.ktx").get())
             }
         }
     }

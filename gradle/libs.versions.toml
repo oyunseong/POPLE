@@ -26,6 +26,10 @@ kotlinxImmutable = "0.3.7"
 
 # https://developer.android.com/jetpack/androidx/releases/hilt
 hiltNavigationCompose = "1.2.0"
+junitKtx = "1.2.1"
+
+# https://jsoup.org/download
+jsoup = "1.18.1"
 
 [libraries]
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
@@ -75,7 +79,9 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-glance = { group = "androidx.glance", name = "glance", version.ref = "glance" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+androidx-junit-ktx = { group = "androidx.test.ext", name = "junit-ktx", version.ref = "junitKtx" }
 
+jsoup = {group = "org.jsoup", name = "jsoup", version.ref = "jsoup"}
 
 
 [plugins]

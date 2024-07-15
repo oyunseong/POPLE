@@ -28,38 +28,17 @@ internal fun MainNavHost(
     onShowErrorSnackBar: (throwable: Throwable?) -> Unit,
     onChangeDarkTheme: (Boolean) -> Unit,
 ) {
-//    val homeNavController = rememberNavController()
-//    val mapNavController = rememberNavController()
-//    val settingNavController = rememberNavController()
-//    val webViewNavController = rememberNavController()
-//
-//    Log.d("++##", "11 navigator.currentTab :${navigator.currentTab}")
-//    Log.d("++##", "11 homeNavController : ${homeNavController.currentDestination.}")
-//
-//    val currentNavController = when (navigator.currentTab) {
-//        MainTab.HOME -> homeNavController
-//        MainTab.MAP -> mapNavController
-//        MainTab.SETTING -> settingNavController
-//        MainTab.WEB_VIEW, MainTab.SUPPORT -> webViewNavController
-//        else -> homeNavController
-//    }
-
     Box(
         modifier = modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.surfaceDim)
     ) {
-        val webViewState = rememberSaveableWebViewState()
-        val webViewNavigator = rememberWebViewNavigator()
-
         NavHost(
             navController = navigator.navController,
             startDestination = navigator.startDestination,
         ) {
             homeNavGraph(
                 padding = padding,
-//                onSessionClick = { navigator.navigateSession() },
-//                onContributorClick = { navigator.navigateContributor() },
                 onShowErrorSnackBar = onShowErrorSnackBar
             )
             settingNavGraph(
@@ -67,8 +46,6 @@ internal fun MainNavHost(
                 onChangeDarkTheme = onChangeDarkTheme
             )
             mapNavGraph(
-                webViewState = webViewState,
-                navigator = webViewNavigator,
                 padding = padding,
                 onShowErrorSnackBar = onShowErrorSnackBar
             )
@@ -76,21 +53,6 @@ internal fun MainNavHost(
                 padding = padding,
                 onShowErrorSnackBar = onShowErrorSnackBar
             )
-
-//            bookmarkNavGraph(
-//                onShowErrorSnackBar = onShowErrorSnackBar
-//            )
-//
-//            contributorNavGraph(
-//                onBackClick = navigator::popBackStackIfNotHome,
-//                onShowErrorSnackBar = onShowErrorSnackBar
-//            )
-//
-//            sessionNavGraph(
-//                onBackClick = navigator::popBackStackIfNotHome,
-//                onSessionClick = { navigator.navigateSessionDetail(it.id) },
-//                onShowErrorSnackBar = onShowErrorSnackBar
-//            )
         }
     }
 }
