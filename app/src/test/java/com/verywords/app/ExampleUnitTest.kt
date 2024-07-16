@@ -1,4 +1,4 @@
-package com.verywords.myapplication
+package com.verywords.app
 
 import org.junit.Test
 

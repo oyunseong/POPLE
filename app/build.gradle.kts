@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.verywords.myapplication"
+    namespace = "com.verywords.app"
 
     defaultConfig {
         versionCode = 1
