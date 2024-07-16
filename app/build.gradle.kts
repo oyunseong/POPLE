@@ -1,14 +1,14 @@
 plugins {
     id("verywords.plugin.application")
-    id("verywords.plugin.hilt")
 }
 
 android {
     namespace = "com.verywords.app"
 
     defaultConfig {
-        versionCode = 1
-        versionName = "1.0"
+        targetSdk = Constants.TARGET_SDK
+        versionCode = Constants.VERSION_CODE
+        versionName = Constants.VERSION_NAME
     }
 
     buildTypes {

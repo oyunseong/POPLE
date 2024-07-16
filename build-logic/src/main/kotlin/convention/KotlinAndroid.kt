@@ -1,5 +1,6 @@
 package convention
 
+import Constants
 import com.android.build.api.dsl.CommonExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
@@ -11,10 +12,10 @@ internal fun Project.configureKotlinAndroid(
     commonExtension: CommonExtension<*, *, *, *, *, *>,
 ) {
     commonExtension.apply {
-        compileSdk = 34
+        compileSdk = Constants.COMPILE_SDK
 
         defaultConfig {
-            minSdk = 24
+            minSdk = Constants.MIN_SDK
         }
 
         defaultConfig {
