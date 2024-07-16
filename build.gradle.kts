@@ -6,8 +6,13 @@ buildscript {
     }
     dependencies {
         classpath(libs.hilt.android.gradle.plugin)
+//        classpath(libs.sceneform.plugin)
     }
 }
+
+gradle.startParameter.excludedTaskNames.addAll(
+    gradle.startParameter.taskNames.filter { it.contains("testClasses") }
+)
 
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
