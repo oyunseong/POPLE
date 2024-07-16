@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    setNamespace("feature.mpa")
+    setNamespace("feature.map")
 }
 
 dependencies {

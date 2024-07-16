@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.verywords.app.core.designsystem.theme.POPLETheme
-import com.verywords.app.feature.mpa.databinding.FragmentMapBinding
+import com.verywords.app.feature.map.databinding.FragmentMapBinding
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
