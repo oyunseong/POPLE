@@ -1,6 +1,6 @@
 [versions]
 accompanistWebview = "0.32.0"
-agp = "8.5.0"
+agp = "8.4.2"
 hiltAndroidGradlePlugin = "2.51.1"
 ksp = "2.0.0-1.0.22"
 kotlin = "2.0.0"
@@ -30,6 +30,8 @@ junitKtx = "1.2.1"
 
 # https://jsoup.org/download
 jsoup = "1.18.1"
+
+sceneform = "1.17.1"
 
 [libraries]
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
@@ -83,6 +85,7 @@ androidx-junit-ktx = { group = "androidx.test.ext", name = "junit-ktx", version.
 
 jsoup = {group = "org.jsoup", name = "jsoup", version.ref = "jsoup"}
 
+sceneform-plugin = { group = "com.google.ar.sceneform", name = "plugin", version.ref = "sceneform" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

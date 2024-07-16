@@ -32,7 +32,7 @@ include(
     ":core:data-api",
     ":core:datastore",
     ":core:navigation",
-    ":core:model"
+//    ":core:model"
 )
 
 // Feature
@@ -41,5 +41,6 @@ include(
     ":feature:webview",
     ":feature:home",
     ":feature:main",
-    ":feature:map"
+    ":feature:map",
 )
+include(":ar")
