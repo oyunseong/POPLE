@@ -18,8 +18,6 @@ internal fun Project.configureKotlinAndroid(
         }
 
         defaultConfig {
-            minSdk = 24
-
             testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
             vectorDrawables {
                 useSupportLibrary = true
@@ -27,16 +25,20 @@ internal fun Project.configureKotlinAndroid(
         }
 
         compileOptions {
-            sourceCompatibility = JavaVersion.VERSION_17
-            targetCompatibility = JavaVersion.VERSION_17
+            sourceCompatibility = JavaVersion.VERSION_21
+            targetCompatibility = JavaVersion.VERSION_21
         }
 
         kotlinOptions {
-            jvmTarget = JavaVersion.VERSION_17.toString()
+//            compilerOptions {
+//                jvmTarget.set(JvmTarget.JVM_17)
+//            }
+            jvmTarget = JavaVersion.VERSION_21.toString()
         }
     }
 }
 
+//fun CommonExtension<*, *, *, *, *, *>.kotlinOptions(block: KotlinJvmCompile.() -> Unit) {
 fun CommonExtension<*, *, *, *, *, *>.kotlinOptions(block: KotlinJvmOptions.() -> Unit) {
     (this as ExtensionAware).extensions.configure("kotlinOptions", block)
 }

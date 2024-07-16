@@ -18,16 +18,14 @@ internal class FeatureConventionPlugin : Plugin<Project> {
                 // core 모듈 추가
                 "implementation"(project(":core:designsystem"))
                 "implementation"(project(":core:navigation"))
+//                "implementation"(project(":ar"))
 
                 "implementation"(libs.findLibrary("androidx.appcompat").get())
                 "implementation"(libs.findLibrary("androidx.core.ktx").get())
                 "implementation"(libs.findLibrary("androidx.navigation.ui.ktx").get())
                 "implementation"(libs.findLibrary("androidx.navigation.fragment.ktx").get())
-                "implementation"(libs.findLibrary("material").get())
-                "implementation"(libs.findLibrary("androidx.core.ktx").get())
                 "implementation"(libs.findLibrary("androidx.lifecycle.runtime.ktx").get())
-                "implementation"(libs.findLibrary("androidx.appcompat").get())
-                "implementation"(libs.findLibrary("androidx.activity.compose").get())
+                "implementation"(libs.findLibrary("material").get())
                 "implementation"(libs.findLibrary("androidx.appcompat").get())
 
                 //webview
