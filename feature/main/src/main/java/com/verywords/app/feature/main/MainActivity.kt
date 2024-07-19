@@ -1,11 +1,11 @@
 package com.verywords.app.feature.main
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.verywords.app.core.designsystem.theme.POPLETheme
 import com.verywords.app.feature.home.HomeFragment
+import com.verywords.app.feature.login.LoginFragment
 import com.verywords.app.feature.main.databinding.ActivityMainBinding
 import com.verywords.app.feature.map.MapFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var homeFragment: HomeFragment
     private lateinit var mapFragment: MapFragment
+    private lateinit var loginFragment: LoginFragment
     private var activeFragment: Fragment? = null
 
     private fun showFragment(fragment: Fragment) {
@@ -39,7 +40,7 @@ class MainActivity : AppCompatActivity() {
 
         homeFragment = HomeFragment()
         mapFragment = MapFragment()
-
+        loginFragment = LoginFragment()
         // Initialize the first fragment to show
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction().add(R.id.fragmentContainer, homeFragment).commit()
@@ -53,13 +54,23 @@ class MainActivity : AppCompatActivity() {
                     return@setOnItemSelectedListener true
                 }
                 R.id.mapFragment -> {
-//                    showFragment(MapFragment())
                     showFragment(mapFragment)
                     return@setOnItemSelectedListener true
                 }
+
+                R.id.loginFragment -> {
+                    showFragment(loginFragment)
+                    return@setOnItemSelectedListener true
+                }
+
                 else -> return@setOnItemSelectedListener false
             }
         }
+
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
     }
 
     override fun onDestroy() {

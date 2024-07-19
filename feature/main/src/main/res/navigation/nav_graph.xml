@@ -15,5 +15,10 @@
         android:name="com.verywords.app.feature.home.HomeFragment"
         android:label="HomeFragment" />
 
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.verywords.app.feature.login.LoginFragment"
+        android:label="LoginFragment" />
+
 
 </navigation>

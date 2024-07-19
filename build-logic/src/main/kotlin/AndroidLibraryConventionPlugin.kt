@@ -28,6 +28,7 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
                 }
 
                 viewBinding.enable = true
+                dataBinding.enable = true
 
                 buildTypes {
                     getByName("release") {

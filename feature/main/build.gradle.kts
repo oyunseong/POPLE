@@ -11,4 +11,5 @@ dependencies {
     implementation(projects.feature.setting)
     implementation(projects.feature.webview)
     implementation(projects.feature.map)
+    implementation(projects.feature.login)
 }

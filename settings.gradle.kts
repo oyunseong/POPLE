@@ -42,5 +42,5 @@ include(
     ":feature:home",
     ":feature:main",
     ":feature:map",
+    ":feature:login"
 )
-include(":ar")

@@ -33,10 +33,14 @@ jsoup = "1.18.1"
 
 sceneform = "1.17.1"
 
+# https://developers.google.com/android/guides/setup?hl=ko#list-dependencies
+googleAuth = "21.2.0"
+googleid = "1.1.1"
+
 [libraries]
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
 kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
-
+google-gms-play-services-auth = { group = "com.google.android.gms", name = "play-services-auth", version.ref = "googleAuth" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hiltAndroidGradlePlugin" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroidGradlePlugin" }
@@ -83,9 +87,14 @@ androidx-glance = { group = "androidx.glance", name = "glance", version.ref = "g
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 androidx-junit-ktx = { group = "androidx.test.ext", name = "junit-ktx", version.ref = "junitKtx" }
 
-jsoup = {group = "org.jsoup", name = "jsoup", version.ref = "jsoup"}
+jsoup = { group = "org.jsoup", name = "jsoup", version.ref = "jsoup" }
 
 sceneform-plugin = { group = "com.google.ar.sceneform", name = "plugin", version.ref = "sceneform" }
+
+## Google OAuth 2.0
+googleid = { group = "com.google.android.libraries.identity.googleid", name = "googleid", version.ref = "googleid" }
+credentials-play-services-auth = { group = "androidx.credentials", name = "credentials-play-services-auth", version.ref = "googleid" }
+credentials = { group = "androidx.credentials", name = "credentials", version.ref = "googleid" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -20,6 +20,9 @@ internal class AndroidApplicationConventionPlugin : Plugin<Project> {
             }
             val libs = extensions.libs
             dependencies {
+//                ("com.google.android.gms:play-services-auth:21.2.0")
+
+
                 "testImplementation"(libs.findLibrary("androidx.ui.test.junit4").get())
             }
         }

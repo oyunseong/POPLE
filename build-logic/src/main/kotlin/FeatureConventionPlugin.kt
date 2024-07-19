@@ -33,6 +33,10 @@ internal class FeatureConventionPlugin : Plugin<Project> {
 
                 // html parser
                 "implementation"(libs.findLibrary("jsoup").get())
+
+                // google sns login
+//                "implementation"(libs.findLibrary("google.gms.play.services.auth").get())
+
             }
         }
     }
