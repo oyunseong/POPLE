@@ -1,7 +1,7 @@
 package convention
 
 import Constants
-import com.android.build.api.dsl.CommonExtension
+import androidExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.provideDelegate
@@ -10,14 +10,17 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 // KotlinAndroid.kt
-internal fun Project.configureKotlinAndroid(
-    commonExtension: CommonExtension<*, *, *, *, *, *>,
-) {
-    commonExtension.apply {
+internal fun Project.configureKotlinAndroid() {
+    androidExtension.apply {
         compileSdk = Constants.COMPILE_SDK
 
         defaultConfig {
             minSdk = Constants.MIN_SDK
+        }
+
+        compileOptions {
+            sourceCompatibility = JavaVersion.VERSION_21
+            targetCompatibility = JavaVersion.VERSION_21
         }
 
         defaultConfig {
@@ -25,11 +28,6 @@ internal fun Project.configureKotlinAndroid(
             vectorDrawables {
                 useSupportLibrary = true
             }
-        }
-
-        compileOptions {
-            sourceCompatibility = JavaVersion.VERSION_21
-            targetCompatibility = JavaVersion.VERSION_21
         }
         configureKotlin()
     }

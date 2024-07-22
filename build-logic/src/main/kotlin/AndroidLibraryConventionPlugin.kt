@@ -17,28 +17,11 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
                 apply("verywords.plugin.hilt")
             }
 
+            configureKotlinAndroid()
+
             extensions.configure<LibraryExtension> {
-                configureKotlinAndroid(this)
-
-                defaultConfig.targetSdk = Constants.TARGET_SDK
-
-                defaultConfig {
-                    testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
-                    vectorDrawables.useSupportLibrary = true
-                }
-
                 viewBinding.enable = true
                 dataBinding.enable = true
-
-                buildTypes {
-                    getByName("release") {
-                        isMinifyEnabled = true
-                        proguardFiles(
-                            getDefaultProguardFile("proguard-android-optimize.txt"),
-                            "proguard-rules.pro"
-                        )
-                    }
-                }
             }
 
             val libs = extensions.libs

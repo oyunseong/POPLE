@@ -1,23 +1,19 @@
 package convention
 
-import com.android.build.api.dsl.CommonExtension
+import androidExtension
 import libs
 import org.gradle.api.Project
-import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.kotlin.dsl.dependencies
-import org.gradle.kotlin.dsl.getByType
 
 // AndroidCompose.kt
-internal fun Project.configureAndroidCompose(
-    commonExtension: CommonExtension<*, *, *, *, *, *>,
-) {
+internal fun Project.configureAndroidCompose() {
     with(plugins) {
         apply("org.jetbrains.kotlin.plugin.compose")
     }
 
     val libs = extensions.libs
 
-    commonExtension.apply {
+    androidExtension.apply {
         buildFeatures.compose = true
     }
 
