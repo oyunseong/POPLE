@@ -4,8 +4,10 @@ import Constants
 import com.android.build.api.dsl.CommonExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
-import org.gradle.api.plugins.ExtensionAware
-import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
+import org.gradle.kotlin.dsl.provideDelegate
+import org.gradle.kotlin.dsl.withType
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 // KotlinAndroid.kt
 internal fun Project.configureKotlinAndroid(
@@ -29,17 +31,21 @@ internal fun Project.configureKotlinAndroid(
             sourceCompatibility = JavaVersion.VERSION_21
             targetCompatibility = JavaVersion.VERSION_21
         }
-
-        kotlinOptions {
-//            compilerOptions {
-//                jvmTarget.set(JvmTarget.JVM_17)
-//            }
-            jvmTarget = JavaVersion.VERSION_21.toString()
-        }
+        configureKotlin()
     }
 }
 
-//fun CommonExtension<*, *, *, *, *, *>.kotlinOptions(block: KotlinJvmCompile.() -> Unit) {
-fun CommonExtension<*, *, *, *, *, *>.kotlinOptions(block: KotlinJvmOptions.() -> Unit) {
-    (this as ExtensionAware).extensions.configure("kotlinOptions", block)
+internal fun Project.configureKotlin() {
+    tasks.withType<KotlinCompile>().configureEach {
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_21)
+            val warningsAsErrors: String? by project
+            allWarningsAsErrors.set(warningsAsErrors.toBoolean())
+            freeCompilerArgs.set(
+                freeCompilerArgs.get() + listOf(
+                    "-opt-in=kotlin.RequiresOptIn",
+                )
+            )
+        }
+    }
 }
