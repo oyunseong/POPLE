@@ -34,14 +34,13 @@ class LoginFragment : Fragment() {
                 LoginScreenContent(
                     user = user.value,
                     onLogin = {
-                        coroutine.launch {
-                            viewModel.requestSignIn()
-                        }
+                        viewModel.requestSignIn()
                     },
                     onLogout = {
-                        coroutine.launch {
-                            viewModel.requestSignOut()
-                        }
+                        viewModel.requestSignOut()
+                    },
+                    onTest = {
+                        viewModel.requestTestData()
                     }
                 )
             }
@@ -58,7 +57,8 @@ fun LoginScreen() {
 fun LoginScreenContent(
     user: String,
     onLogin: () -> Unit,
-    onLogout: () -> Unit
+    onLogout: () -> Unit,
+    onTest: () -> Unit
 ) {
     Box(modifier = Modifier) {
         Column {
@@ -69,6 +69,10 @@ fun LoginScreenContent(
                 Text(text = "로그아웃")
             }
             Text(text = "유저 정보 : $user")
+
+            Button(onClick = { onTest.invoke() }) {
+                Text(text = "POST 요청")
+            }
         }
     }
 }

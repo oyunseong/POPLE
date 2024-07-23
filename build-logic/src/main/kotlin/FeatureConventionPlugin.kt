@@ -19,6 +19,7 @@ internal class FeatureConventionPlugin : Plugin<Project> {
                 "implementation"(project(":core:designsystem"))
                 "implementation"(project(":core:navigation"))
                 "implementation"(project(":core:data"))
+                "implementation"(project(":core:data-api"))
 
                 "implementation"(libs.findLibrary("androidx.appcompat").get())
                 "implementation"(libs.findLibrary("androidx.core.ktx").get())

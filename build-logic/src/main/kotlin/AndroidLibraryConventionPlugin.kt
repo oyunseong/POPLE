@@ -15,6 +15,7 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
                 apply("org.jetbrains.kotlin.android")
                 apply("kotlin-parcelize")
                 apply("verywords.plugin.hilt")
+                apply("org.jetbrains.kotlin.plugin.serialization")
             }
 
             extensions.configure<LibraryExtension> {
@@ -24,6 +25,7 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
 
             val libs = extensions.libs
             dependencies {
+                "implementation"(libs.findLibrary("kotlinx.serialization.json").get())
 //                "testImplementation"(libs.findLibrary("androidx.ui.test.junit4").get())
 //                "implementation"(libs.findLibrary("androidx.junit.ktx").get())
             }
