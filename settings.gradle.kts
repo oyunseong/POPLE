@@ -1,15 +1,9 @@
 pluginManagement {
     includeBuild("build-logic")
     repositories {
-        google {
-            content {
-                includeGroupByRegex("com\\.android.*")
-                includeGroupByRegex("com\\.google.*")
-                includeGroupByRegex("androidx.*")
-            }
-        }
-        mavenCentral()
         gradlePluginPortal()
+        google()
+        mavenCentral()
     }
 }
 
@@ -32,7 +26,7 @@ include(
     ":core:data-api",
     ":core:datastore",
     ":core:navigation",
-//    ":core:model"
+    ":core:model"
 )
 
 // Feature

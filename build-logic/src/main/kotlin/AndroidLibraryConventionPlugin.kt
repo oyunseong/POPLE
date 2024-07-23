@@ -17,8 +17,6 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
                 apply("verywords.plugin.hilt")
             }
 
-            configureKotlinAndroid()
-
             extensions.configure<LibraryExtension> {
                 viewBinding.enable = true
                 dataBinding.enable = true
@@ -26,9 +24,10 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
 
             val libs = extensions.libs
             dependencies {
-                "testImplementation"(libs.findLibrary("androidx.ui.test.junit4").get())
-                "implementation"(libs.findLibrary("androidx.junit.ktx").get())
+//                "testImplementation"(libs.findLibrary("androidx.ui.test.junit4").get())
+//                "implementation"(libs.findLibrary("androidx.junit.ktx").get())
             }
+            configureKotlinAndroid()
         }
     }
 }

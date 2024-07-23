@@ -36,5 +36,11 @@ gradlePlugin {
             id = "verywords.plugin.feature"
             implementationClass = "FeatureConventionPlugin"
         }
+
+        // Kotlin Library
+        register("AndroidLibraryKotlinConventionPlugin") {
+            id = "verywords.plugin.android.kotlin"
+            implementationClass = "AndroidLibraryKotlinConventionPlugin"
+        }
     }
 }

@@ -1,6 +1,5 @@
 plugins {
-    id("verywords.plugin.android.library")
-    id("verywords.plugin.android.library.compose")
+    id("verywords.plugin.android.kotlin")
 }
 
 android {
@@ -8,5 +7,6 @@ android {
 }
 
 dependencies {
+    implementation(projects.core.model)
 
 }

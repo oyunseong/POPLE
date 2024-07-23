@@ -18,7 +18,7 @@ internal class FeatureConventionPlugin : Plugin<Project> {
                 // core 모듈 추가
                 "implementation"(project(":core:designsystem"))
                 "implementation"(project(":core:navigation"))
-//                "implementation"(project(":ar"))
+                "implementation"(project(":core:data"))
 
                 "implementation"(libs.findLibrary("androidx.appcompat").get())
                 "implementation"(libs.findLibrary("androidx.core.ktx").get())
