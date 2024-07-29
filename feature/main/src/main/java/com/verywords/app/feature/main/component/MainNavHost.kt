@@ -1,21 +1,15 @@
 package com.verywords.app.feature.main.component
 
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.rememberNavController
-import com.google.accompanist.web.rememberSaveableWebViewState
-import com.google.accompanist.web.rememberWebViewNavigator
 import com.verywords.app.feature.home.navigation.homeNavGraph
-import com.verywords.app.feature.main.MainNavigator
-import com.verywords.app.feature.main.MainTab
+import com.verywords.app.feature.main.compose.MainNavigator
 import com.verywords.app.feature.map.navigation.mapNavGraph
 import com.verywords.app.feature.setting.navigation.settingNavGraph
 import com.verywords.app.feature.webview.navigation.webViewNavGraph

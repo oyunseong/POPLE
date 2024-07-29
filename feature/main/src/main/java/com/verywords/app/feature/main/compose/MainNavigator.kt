@@ -1,6 +1,5 @@
-package com.verywords.app.feature.main
+package com.verywords.app.feature.main.compose
 
-import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.navigation.NavDestination
@@ -17,7 +16,9 @@ import com.verywords.app.feature.map.navigation.navigateMap
 import com.verywords.app.feature.setting.navigation.navigateSetting
 import com.verywords.app.feature.webview.navigation.navigateWebView
 
-
+/**
+ * 2024년도 1차 배포는 React로 개발된 UI를 WebView로 보여주는 것으로 결정되어 Compose Navigation은 보류되었습니다.
+ */
 internal class MainNavigator(
     val navController: NavHostController,
 ) {

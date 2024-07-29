@@ -32,7 +32,19 @@ sealed interface MainTabRoute : Route {
 
 sealed interface WebViewRoute : Route {
     @Serializable
-    data object Main : WebViewRoute
+    data object Home : WebViewRoute
+
+    @Serializable
+    data object Battery : WebViewRoute
+
+    @Serializable
+    data object Map : WebViewRoute
+
+    @Serializable
+    data object Support : WebViewRoute
+
+    @Serializable
+    data object More : WebViewRoute
 }
 
 

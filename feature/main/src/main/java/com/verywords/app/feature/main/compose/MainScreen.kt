@@ -1,7 +1,6 @@
-package com.verywords.app.feature.main
+package com.verywords.app.feature.main.compose
 
 import androidx.compose.foundation.layout.navigationBarsPadding
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -10,7 +9,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.unit.dp
 import com.verywords.app.feature.main.component.MainBottomBar
 import com.verywords.app.feature.main.component.MainNavHost
 import kotlinx.collections.immutable.toPersistentList

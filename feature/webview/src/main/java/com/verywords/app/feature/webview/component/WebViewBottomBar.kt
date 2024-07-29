@@ -1,4 +1,4 @@
-package com.verywords.app.feature.main.component
+package com.verywords.app.feature.webview.component
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
@@ -35,17 +35,16 @@ import com.verywords.app.core.designsystem.theme.Gray300
 import com.verywords.app.core.designsystem.theme.Gray400
 import com.verywords.app.core.designsystem.theme.POPLETheme
 import com.verywords.app.core.designsystem.theme.Primary500
-import com.verywords.app.feature.main.compose.MainTab
 import kotlinx.collections.immutable.PersistentList
 import kotlinx.collections.immutable.toPersistentList
 
 @Composable
-internal fun MainBottomBar(
+internal fun WebViewBottomBar(
     modifier: Modifier = Modifier,
     visible: Boolean,
-    tabs: PersistentList<MainTab>,
-    currentTab: MainTab?,
-    onTabSelected: (MainTab) -> Unit,
+    tabs: PersistentList<WebTab>,
+    currentTab: WebTab?,
+    onTabSelected: (WebTab) -> Unit,
 ) {
     AnimatedVisibility(
         visible = visible,
@@ -67,7 +66,7 @@ internal fun MainBottomBar(
                     .padding(horizontal = 20.dp),
             ) {
                 tabs.forEach { tab ->
-                    MainBottomBarItem(
+                    WebViewBottomBarItem(
                         tab = tab,
                         selected = tab == currentTab,
                         onClick = { onTabSelected(tab) },
@@ -94,9 +93,9 @@ fun LinearLine(
 }
 
 @Composable
-private fun RowScope.MainBottomBarItem(
+private fun RowScope.WebViewBottomBarItem(
     modifier: Modifier = Modifier,
-    tab: MainTab,
+    tab: WebTab,
     selected: Boolean,
     onClick: () -> Unit,
 ) {
@@ -136,12 +135,12 @@ private fun RowScope.MainBottomBarItem(
 
 @Preview
 @Composable
-private fun MainBottomBarPreview() {
+private fun WebViewBottomBarPreview() {
     POPLETheme {
-        MainBottomBar(
+        WebViewBottomBar(
             visible = true,
-            tabs = MainTab.entries.toPersistentList(),
-            currentTab = MainTab.HOME,
+            tabs = WebTab.entries.toPersistentList(),
+            currentTab = WebTab.HOME,
             onTabSelected = { },
         )
     }

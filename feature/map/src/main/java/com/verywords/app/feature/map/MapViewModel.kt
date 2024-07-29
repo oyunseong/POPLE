@@ -41,7 +41,7 @@ class MapViewModel @Inject constructor() : ViewModel() {
     init {
         viewModelScope.launch {
             currentPageHtml.collect {
-                Log.d("++##", "currentPageHtml : $it")
+//                Log.d("++##", "currentPageHtml : $it")
             }
         }
     }

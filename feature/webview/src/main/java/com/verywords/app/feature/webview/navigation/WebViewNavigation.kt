@@ -6,7 +6,6 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import com.verywords.app.core.navigation.MainTabRoute
-import com.verywords.app.feature.webview.WebViewRoute
 
 fun NavController.navigateWebView(navOptions: NavOptions) {
     navigate(
@@ -20,7 +19,7 @@ fun NavGraphBuilder.webViewNavGraph(
     onShowErrorSnackBar: (throwable: Throwable?) -> Unit,
 ) {
     composable<MainTabRoute.WebView> {
-        WebViewRoute(padding, onShowErrorSnackBar)
+//        WebViewRoute(padding, onShowErrorSnackBar)
     }
 }
 

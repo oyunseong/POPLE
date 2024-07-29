@@ -1,43 +1,44 @@
-package com.verywords.app.feature.main
+package com.verywords.app.feature.webview.component
 
 import androidx.compose.runtime.Composable
-import com.verywords.app.core.navigation.MainTabRoute
 import com.verywords.app.core.navigation.Route
+import com.verywords.app.core.navigation.WebViewRoute
+import com.verywords.app.feature.webview.R
 
-internal enum class MainTab(
+enum class WebTab(
     val iconResId: Int,
     internal val contentDescription: Int,
-    val route: MainTabRoute,
+    val route: WebViewRoute,
 ) {
     HOME(
         iconResId = R.drawable.ic_scooter,
         contentDescription = R.string.TAB_MY_RIDE,
-        route = MainTabRoute.Home
+        route = WebViewRoute.Home
     ),
-    SETTING(
+    BATTERY(
         iconResId = R.drawable.ic_battery,
         contentDescription = R.string.TAB_BATTERY,
-        route = MainTabRoute.Setting,
+        route = WebViewRoute.Battery,
     ),
     MAP(
         iconResId = R.drawable.ic_map,
         contentDescription = R.string.TAB_MAP,
-        route = MainTabRoute.Map,
+        route = WebViewRoute.Map,
     ),
     SUPPORT(
         iconResId = R.drawable.ic_support,
         contentDescription = R.string.TAB_SUPPORT,
-        route = MainTabRoute.WebView,
+        route = WebViewRoute.Support,
     ),
-    WEB_VIEW(
+    MORE(
         iconResId = R.drawable.ic_menu,
         contentDescription = R.string.TAB_MORE,
-        route = MainTabRoute.WebView,
+        route = WebViewRoute.More,
     );
 
     companion object {
         @Composable
-        fun find(predicate: @Composable (MainTabRoute) -> Boolean): MainTab? {
+        fun find(predicate: @Composable (WebViewRoute) -> Boolean): WebTab? {
             return entries.find { predicate(it.route) }
         }
 
